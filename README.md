@@ -1,4 +1,4 @@
-  This is a tutorial project on creating a library management system with books. Books are stored in a json file. Data input and output is organized using the terminal.
+This is a tutorial project on creating a library management system with books. Books are stored in a json file. Data input and output is organized using the terminal.
   
 The following functionality is currently implemented:
 1. Adding a book: The user enters the title, author, and year, after which the book is added to the library with a unique id and the status “in stock”.
