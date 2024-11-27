@@ -111,9 +111,9 @@ class SubMenu(InputInfoBook):
         invalid_message = "Не понял выбор!"
         while True:
             choice = input("Для поиска книги:\n"
-                           f"\tпо названию введите '{valid_selection_symbol[0]}'\n"
-                           f"\tпо автору введите '{valid_selection_symbol[1]}'\n"
-                           f"\tпо году введите '{valid_selection_symbol[2]}'\n")
+                           f"\tпо названию введите '{self.cs.choose(valid_selection_symbol[0])}'\n"
+                           f"\tпо автору введите '{self.cs.choose(valid_selection_symbol[1])}'\n"
+                           f"\tпо году введите '{self.cs.choose(valid_selection_symbol[2])}'\n")
 
             if choice in valid_selection_symbol:
                 break
@@ -145,8 +145,8 @@ class SubMenu(InputInfoBook):
                   f"Название:\t{book[bc.BookBase.title_idx]}\n" +
                   f"Автор:\t\t{book[bc.BookBase.author_idx]}\n" +
                   f"Год издания:\t{book[bc.BookBase.year_idx]}\n" +
-                  self.cs.good('в наличии') if book[bc.BookBase.status_idx] else
-                  self.cs.warning('выдана') + '\n')
+                  (self.cs.good('в наличии') if book[bc.BookBase.status_idx] else
+                   self.cs.warning('выдана') + '\n'))
 
         print(self.cs.info_result(f"Всего книг в библиотеке: {len(books_dict)}"), '\n')
 
@@ -164,8 +164,8 @@ class SubMenu(InputInfoBook):
                           f"Название:\t{book[bc.BookBase.title_idx]}\n" +
                           f"Автор:\t\t{book[bc.BookBase.author_idx]}\n" +
                           f"Год издания:\t{book[bc.BookBase.year_idx]}\n" +
-                          self.cs.good('в наличии') if book[bc.BookBase.status_idx] else
-                          self.cs.warning('выдана') + '\n')
+                          (self.cs.good('в наличии') if book[bc.BookBase.status_idx] else
+                           self.cs.warning('выдана') + '\n'))
 
     def change_status(self) -> bool:
         """Возвращает True в случае успешного изменения статуса книги,
